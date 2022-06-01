@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Mini_Project_2.Model
+namespace Mini_Project_2.Assets
 {
     public abstract class Computers : Assets
     {
