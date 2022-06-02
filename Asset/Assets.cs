@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mini_Project_2.Assets
+namespace Mini_Project_2.Asset
 {
     /// <summary>
     /// Describes a asset

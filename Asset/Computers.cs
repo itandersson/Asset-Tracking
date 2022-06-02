@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Mini_Project_2.Assets
+namespace Mini_Project_2.Asset
 {
-
-    public abstract class MobilePhones : Assets
+    public abstract class Computers : Assets
     {
         public override string ToString()
         {
@@ -15,10 +14,9 @@ namespace Mini_Project_2.Assets
         }
     }
 
-    public class Iphone : MobilePhones
+    public class MacBook : Computers
     {
-
-        public Iphone(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
+        public MacBook(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
         {
             base.purchaseDate = purchaseDate;
             base.price = price;
@@ -30,25 +28,10 @@ namespace Mini_Project_2.Assets
         }
     }
 
-    public class Samsung : MobilePhones
+    public class Asus : Computers
     {
 
-        public Samsung(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
-        {
-            base.purchaseDate = purchaseDate;
-            base.price = price;
-            base.type = type;
-            base.brand = brand;
-            base.model = model;
-            this.office = office;
-            base.currency = currency;
-        }
-    }
-
-    public class Nokia : MobilePhones
-    {
-
-        public Nokia(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
+        public Asus(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
         {
             base.purchaseDate = purchaseDate;
             base.price = price;
@@ -60,10 +43,25 @@ namespace Mini_Project_2.Assets
         }
     }
 
-    public class Motorola : MobilePhones
+    public class Lenovo : Computers
     {
 
-        public Motorola(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
+        public Lenovo(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
+        {
+            base.purchaseDate = purchaseDate;
+            base.price = price;
+            base.type = type;
+            base.brand = brand;
+            base.model = model;
+            base.office = office;
+            base.currency = currency;
+        }
+    }
+
+    public class HP : Computers
+    {
+
+        public HP(DateTime purchaseDate, int price, string type, string brand, string model, string office, string currency)
         {
             base.purchaseDate = purchaseDate;
             base.price = price;
