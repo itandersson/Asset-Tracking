@@ -8,7 +8,7 @@ using Mini_Project_2.Asset;
 
 namespace Mini_Project_2.Model
 {
-    public class BloggingContext : DbContext
+    public class AssetsContext : DbContext
     {
         public DbSet<Assets> Asset { get; set; }
 
