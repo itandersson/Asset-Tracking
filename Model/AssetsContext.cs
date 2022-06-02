@@ -29,18 +29,5 @@ namespace Mini_Project_2.Model
             optionsBuilder.UseSqlServer(
                 @"Server=localhost,1433;Database=Blogging;Trusted_Connection=False;User Id=SA;Password=@mssql1Ipw;");
         }
-
-        /// <summary>
-        /// Table Asset set to not contain a primary key
-        /// </summary>
-        /// <param name="modelBuilder"></param>
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Assets>(
-                asset =>
-                {
-                    asset.HasNoKey();
-                });
-        }
     }
 }
