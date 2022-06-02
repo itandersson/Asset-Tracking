@@ -10,8 +10,9 @@ namespace Mini_Project_2
     {
         static List<Assets> assetList = new List<Assets>();
 
-        static void Main(string[] args)
+    static void Main(string[] args)
         {
+            var db = new AssetsContext();
             Assets asset = new Assets();
 
             // list of assets
@@ -24,6 +25,9 @@ namespace Mini_Project_2
             assetList.Add(new Asus(DateTime.Parse("2017/04/21"), 1200, "Computer", "Asus", "W234", "USA", "USD"));
             assetList.Add(new Lenovo(DateTime.Parse("2018/05/28"), 835, "Computer", "Lenovo", "Yoga 730", "USA", "USD"));
             assetList.Add(new Lenovo(DateTime.Parse("2019/05/21"), 1030, "Computer", "Lenovo", "Yoga 530", "USA", "USD"));
+
+            db.AddRange(assetList);
+            db.SaveChanges();
 
             //Prints a sorted list with computers first, then phones
             List<Assets> SortedCPuterFirst = assetList.OrderBy(item => item.type).ToList<Assets>();

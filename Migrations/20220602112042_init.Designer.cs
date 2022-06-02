@@ -9,8 +9,8 @@ using Mini_Project_2.Model;
 
 namespace Mini_Project_2.Migrations
 {
-    [DbContext(typeof(BloggingContext))]
-    [Migration("20220602094713_init")]
+    [DbContext(typeof(AssetsContext))]
+    [Migration("20220602112042_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

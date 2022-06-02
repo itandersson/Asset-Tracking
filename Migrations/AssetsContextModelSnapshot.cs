@@ -8,8 +8,8 @@ using Mini_Project_2.Model;
 
 namespace Mini_Project_2.Migrations
 {
-    [DbContext(typeof(BloggingContext))]
-    partial class BloggingContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AssetsContext))]
+    partial class AssetsContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
