@@ -10,13 +10,13 @@ namespace Mini_Project_2.Asset
     {
         private static List<Assets> assets = new List<Assets>();
         private DateTime endOfLife = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddYears(-3).AddMonths(-3);
-        public DateTime purchaseDate;
-        public int price;
-        public string type;
-        public string brand;
-        public string model;
-        public string office;
-        public string currency;
+        public DateTime purchaseDate { get; set; }
+        public int price { get; set; }
+        public string type { get; set; }
+        public string brand { get; set; }
+        public string model { get; set; }
+        public string office { get; set; }
+        public string currency{ get; set; }
 
         public void setList(List<Assets> assetList)
         {
