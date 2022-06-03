@@ -15,6 +15,14 @@ namespace Mini_Project_2
             var db = new AssetsContext();
             Assets asset = new Assets();
 
+            // Read from database
+            var assets = db.Asset
+            .OrderBy(item => item.Id)
+            .ToList();
+
+            // Add to list
+            assetList.AddRange(assets);
+
             // Note: Only for test, To activate predefined items
             //assetList.Add(new Iphone(DateTime.Parse("2018/12/29"), 970, "Phone", "iPhone", "8", "Spain", "EUR"));
             //assetList.Add(new HP(DateTime.Parse("2019/06/01"), 1423, "Computer", "HP", "Elitebook", "Spain", "EUR"));
