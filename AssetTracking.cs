@@ -57,7 +57,9 @@ namespace Mini_Project_2
                 "Exit program by write \"q\" (for quit).!\n\n" +
                 "(1) Show Assets (Sorted by office)\n" +
                 "(2) Show Assets (Sorted by purchase date)\n" +
-                "(3) Add New Asset\n";
+                "(3) Add New Asset\n" +
+                "(4) Update Asset\n" +
+                "(5) Delete Asset\n";
 
             while (run)
             {
@@ -89,6 +91,12 @@ namespace Mini_Project_2
                         continue;
                     case 3:
                         addNewAsset();
+                        continue;
+                    case 4:
+                        updateAsset();
+                        continue;
+                    case 5:
+                        deleteAsset();
                         continue;
                 }
             }
@@ -242,6 +250,44 @@ namespace Mini_Project_2
             if (fail) { asset = null; }
 
             return asset;
+        }
+        private static void updateAsset()
+        {
+            
+        }
+
+        /// <summary>
+        /// Removes an asset from the List and the database
+        /// </summary>
+        private static void deleteAsset()
+        {
+            Assets asset = new Assets();
+
+            //Prints a sorted list by purchase date
+            List<Assets> SortedByPurchase = assetList.OrderBy(item => item.purchaseDate).ToList<Assets>();
+            asset.setList(SortedByPurchase);
+            asset.setTempNumber();
+            asset.printSortedList();
+
+            //Ask the user for Nr
+            string delete = "What asset do you want to delete?";
+            Console.WriteLine(delete);
+            Console.Write("Select a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            //Try to delete asset, First from List and then from the database
+            try
+            {
+                int id = SortedByPurchase[--number].Id; //Find assets id
+                Assets deleteAsset = SortedByPurchase.First(item => item.Id == id);
+                db.Remove(deleteAsset);
+                db.SaveChanges();
+                assetList.Remove(deleteAsset);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\nError: " + e.Message + "\n");
+            }
         }
     }
 }
