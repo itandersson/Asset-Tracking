@@ -6,7 +6,7 @@ namespace Mini_Project_2.Asset
     {
         public override string ToString()
         {
-            string outPut = type.PadRight(10) + brand.PadRight(10) + model.PadRight(15) +
+            string outPut = nr.ToString().PadRight(5) + type.PadRight(10) + brand.PadRight(10) + model.PadRight(15) +
                 office.PadRight(10) + purchaseDate.ToString("yy/MM/dd").PadRight(16) +
                 price.ToString().PadRight(15) + currency.PadRight(10);
 

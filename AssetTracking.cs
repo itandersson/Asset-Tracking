@@ -39,6 +39,7 @@ namespace Mini_Project_2
             //Prints a sorted list with computers first, then phones
             List<Assets> SortedCPuterFirst = assetList.OrderBy(item => item.type).ToList<Assets>();
             asset.setList(SortedCPuterFirst);
+            asset.setTempNumber();
             asset.printSortedList();
 
             input(asset);
@@ -76,12 +77,14 @@ namespace Mini_Project_2
                         //Prints a sorted list by office
                         List<Assets> SortedByOffice = assetList.OrderBy(item => item.office).ToList<Assets>();
                         asset.setList(SortedByOffice);
+                        asset.setTempNumber();
                         asset.printSortedList();
                         continue;
                     case 2:
                         //Prints a sorted list by purchase date
                         List<Assets> SortedByPurchase = assetList.OrderBy(item => item.purchaseDate).ToList<Assets>();
                         asset.setList(SortedByPurchase);
+                        asset.setTempNumber();
                         asset.printSortedList();
                         continue;
                     case 3:

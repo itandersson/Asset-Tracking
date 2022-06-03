@@ -10,6 +10,7 @@ namespace Mini_Project_2.Asset
     {
         private static List<Assets> assets = new List<Assets>();
         private DateTime endOfLife = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddYears(-3).AddMonths(-3);
+        internal int nr = 0;
         public int Id { get; set; }
         public DateTime purchaseDate { get; set; }
         public int price { get; set; }
@@ -26,7 +27,7 @@ namespace Mini_Project_2.Asset
 
         public void printSortedList()
         {
-            string outPut = "Type".PadRight(10) + "Brand".PadRight(10) + "Model".PadRight(15) +
+            string outPut = "Nr".PadRight(5) + "Type".PadRight(10) + "Brand".PadRight(10) + "Model".PadRight(15) +
                 "Office".PadRight(10) + "Purchase Date".PadRight(16) + "Price in USD".PadRight(15) +
                 "Currency".PadRight(10);
 
@@ -45,6 +46,17 @@ namespace Mini_Project_2.Asset
             }
 
             Console.WriteLine("\n");
+        }
+
+        internal void setTempNumber()
+        {
+            int i = 1;
+            // Assign a number
+            foreach (Assets asset in assets)
+            {
+                asset.nr = i;
+                ++i;
+            }
         }
     }
 }
