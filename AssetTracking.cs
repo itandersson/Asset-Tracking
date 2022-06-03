@@ -8,11 +8,11 @@ namespace Mini_Project_2
 {
     internal class AssetTracking
     {
+        static AssetsContext db = new AssetsContext();
         static List<Assets> assetList = new List<Assets>();
 
     static void Main(string[] args)
         {
-            var db = new AssetsContext();
             Assets asset = new Assets();
 
             // Read from database
@@ -122,8 +122,11 @@ namespace Mini_Project_2
             //If the asset was created
             if (asset != null)
             {
-                assetList.Add(asset);
-                Console.WriteLine('\t' + "Thank you! your asset was successfully added to list." + '\n');
+                assetList.Add(asset); // Add to list
+                db.Add(asset); // Add to database
+                db.SaveChanges();
+
+                Console.WriteLine('\t' + "Thank you! your asset was successfully added" + '\n');
             }
             else { Console.WriteLine('\t' + "An error occurred! Please try again" + '\n'); }
 
