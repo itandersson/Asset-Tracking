@@ -73,31 +73,38 @@ namespace Mini_Project_2
                 int value;
                 int.TryParse(input, out value);
 
-                switch (value)
+                try
                 {
-                    case 1:
-                        //Prints a sorted list by office
-                        List<Assets> SortedByOffice = assetList.OrderBy(item => item.office).ToList<Assets>();
-                        asset.setList(SortedByOffice);
-                        asset.setTempNumber();
-                        asset.printSortedList();
-                        continue;
-                    case 2:
-                        //Prints a sorted list by purchase date
-                        List<Assets> SortedByPurchase = assetList.OrderBy(item => item.purchaseDate).ToList<Assets>();
-                        asset.setList(SortedByPurchase);
-                        asset.setTempNumber();
-                        asset.printSortedList();
-                        continue;
-                    case 3:
-                        updateOffice();
-                        continue;
-                    case 4:
-                        addNewAsset();
-                        continue;
-                    case 5:
-                        deleteAsset();
-                        continue;
+                    switch (value)
+                    {
+                        case 1:
+                            //Prints a sorted list by office
+                            List<Assets> SortedByOffice = assetList.OrderBy(item => item.office).ToList<Assets>();
+                            asset.setList(SortedByOffice);
+                            asset.setTempNumber();
+                            asset.printSortedList();
+                            continue;
+                        case 2:
+                            //Prints a sorted list by purchase date
+                            List<Assets> SortedByPurchase = assetList.OrderBy(item => item.purchaseDate).ToList<Assets>();
+                            asset.setList(SortedByPurchase);
+                            asset.setTempNumber();
+                            asset.printSortedList();
+                            continue;
+                        case 3:
+                            updateOffice();
+                            continue;
+                        case 4:
+                            addNewAsset();
+                            continue;
+                        case 5:
+                            deleteAsset();
+                            continue;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine('\t' + "Error: " + e.Message);
                 }
             }
         }
