@@ -57,8 +57,8 @@ namespace Mini_Project_2
                 "Exit program by write \"q\" (for quit).!\n\n" +
                 "(1) Show Assets (Sorted by office)\n" +
                 "(2) Show Assets (Sorted by purchase date)\n" +
-                "(3) Add New Asset\n" +
-                "(4) Update Asset\n" +
+                "(3) Update Office (The asset has been sent to a new office)\n" +
+                "(4) Add New Asset\n" +
                 "(5) Delete Asset\n";
 
             while (run)
@@ -90,10 +90,10 @@ namespace Mini_Project_2
                         asset.printSortedList();
                         continue;
                     case 3:
-                        addNewAsset();
+                        updateOffice();
                         continue;
                     case 4:
-                        updateAsset();
+                        addNewAsset();
                         continue;
                     case 5:
                         deleteAsset();
@@ -251,9 +251,43 @@ namespace Mini_Project_2
 
             return asset;
         }
-        private static void updateAsset()
+
+        /// <summary>
+        /// Updates the office property in one asset
+        /// </summary>
+        private static void updateOffice()
         {
-            
+            Assets asset = new Assets();
+
+            //Prints a sorted list by purchase date
+            List<Assets> SortedByPurchase = assetList.OrderBy(item => item.purchaseDate).ToList<Assets>();
+            asset.setList(SortedByPurchase);
+            asset.setTempNumber();
+            asset.printSortedList();
+
+            //Ask the user for nr
+            string delete = "What asset do you want to update?";
+            Console.WriteLine(delete);
+            Console.Write("Select a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            //Get the asset
+            int id = SortedByPurchase[--number].Id; //Find assets id
+            Assets updateAsset = SortedByPurchase.First(item => item.Id == id);
+
+            //Ask the user for new office
+            string update = "Which office should the asset belong to?";
+            Console.WriteLine(update);
+            Console.Write("Enter office (Spain, Sweden or USA): ");
+            string office = Console.ReadLine();
+
+            //Update List and the database
+            int index = assetList.IndexOf(updateAsset);
+            updateAsset.office = office;
+            assetList.RemoveAt(index);
+            assetList.Insert(index, updateAsset);
+            db.Update(updateAsset);
+            db.SaveChanges();
         }
 
         /// <summary>
