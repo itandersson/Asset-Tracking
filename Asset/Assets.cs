@@ -45,6 +45,7 @@ namespace Mini_Project_2.Asset
                 Console.WriteLine(asset.ToString());
             }
 
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n");
         }
 
