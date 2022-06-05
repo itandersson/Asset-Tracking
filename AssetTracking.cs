@@ -53,8 +53,7 @@ namespace Mini_Project_2
         {
             bool run = true;
 
-            string welcome = "Add new asset\n" +
-                "Exit program by write \"q\" (for quit).!\n\n" +
+            string welcome = "Exit program by write \"q\" (for quit).!\n\n" +
                 "(1) Show Assets (Sorted by office)\n" +
                 "(2) Show Assets (Sorted by purchase date)\n" +
                 "(3) Update Office (The asset has been sent to a new office)\n" +
